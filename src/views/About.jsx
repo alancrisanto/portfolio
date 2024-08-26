@@ -18,7 +18,7 @@ function About() {
 
 	return (
 		<main className="container mx-auto pt-20 px-6">
-			<div className="max-w-[860px] mx-auto text-slate-100">
+			<div className="max-w-[960px] mx-auto text-slate-100">
 				{/* Div Photo and Info */}
 				<div className="md:flex gap-4">
 					{/* Photo */}
@@ -144,6 +144,12 @@ function About() {
 
 				<div className="py-16">
 					<DescSkills />
+				</div>
+
+				{/* Porject on mind */}
+				<div className="bg-[url('/wave.svg')] bg-no-repeat bg-top bg-[length:100%_100%] -mx-6 md:-mx-[calc(100vw-100%)] py-16 md-l:px-16 text-center ">
+					<p className="px-6 md:px-16 text-5xl md:text-7xl font-bold mb-16">Have any project on mind?</p>
+					<Button className="text-3xl" text="Hired Me" link="/certificates" />
 				</div>
 			</div>
 		</main>

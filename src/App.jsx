@@ -9,7 +9,7 @@ import Certificates from "./views/Certificates";
 function App() {
 	return (
 		<div className="body-containe w-full h-screen">
-			<div className="container mx-auto ">
+			<div className="container mx-auto">
 				<BrowserRouter>
 					<Navbar />
 					<Routes>
