@@ -69,15 +69,15 @@ function About() {
 						<h3 className="text-2xl font-semibold mb-4">Languages</h3>
 						<div className="grid grid-cols-[0.75fr_1fr] md:grid-cols-[0.5fr_1fr] lg:grid-cols-[0.35fr_1fr] items-center">
 							<p className="text-lg font-semibold">Spanish:</p>
-							<img src="/dots_1.svg" alt="consecutives green dots" />
+							<img src="assets/dots_1.svg" alt="consecutives green dots" />
 						</div>
 						<div className="grid grid-cols-[0.75fr_1fr] md:grid-cols-[0.5fr_1fr] lg:grid-cols-[0.35fr_1fr] items-center">
 							<p className="text-lg font-semibold">English:</p>
-							<img src="/dots_2.svg" alt="consecutive green and grey dots" />
+							<img src="assets/dots_2.svg" alt="consecutive green and grey dots" />
 						</div>
 						<div className="grid grid-cols-[0.75fr_1fr] md:grid-cols-[0.5fr_1fr] lg:grid-cols-[0.35fr_1fr] items-center">
 							<p className="text-lg font-semibold">Portuguese:</p>
-							<img src="/dots_3.svg" alt="consecutive green and grey dots" />
+							<img src="assets/dots_3.svg" alt="consecutive green and grey dots" />
 						</div>
 					</div>
 				</div>
@@ -147,7 +147,7 @@ function About() {
 				</div>
 
 				{/* Porject on mind */}
-				<div className="bg-[url('/wave.svg')] bg-no-repeat bg-top bg-[length:100%_100%] -mx-6 md:-mx-[calc(100vw-100%)] py-16 md-l:px-16 text-center ">
+				<div className="bg-[url('assets/wave.svg')] bg-no-repeat bg-top bg-[length:100%_100%] -mx-6 md:-mx-[calc(100vw-100%)] py-16 md-l:px-16 text-center ">
 					<p className="px-6 md:px-16 text-5xl md:text-7xl font-bold mb-16">Have any project on mind?</p>
 					<Button className="text-3xl" text="Hired Me" link="/certificates" />
 				</div>
