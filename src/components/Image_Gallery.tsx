@@ -1,62 +1,64 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ButtonSmall from "./ButtonSmall";
 
 const projects = [
 	{
 		id: 1,
 		category: "python",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Responsive design across devices",
-		title: "Infographic Design Python 01",
-		link: "https://www.example.com/project3",
+		image: "/projects/recipes_rag.webp",
+		alt: "",
+		title: "Recipe Generator RAG",
+		link: "https://huggingface.co/spaces/acrisvall/recipes-generator",
 	},
 	{
 		id: 2,
-		category: "react",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Various food dishes",
-		title: "Infographic React 02",
-		link: "https://www.example.com/project3",
+		category: "node",
+		image: "/projects/node-api.webp",
+		alt: "node js api landing image",
+		title: "NodeJs API",
+		link: "https://project2-mqo5.onrender.com/",
 	},
 	{
 		id: 3,
-		category: "react",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Circular infographic",
-		title: "Infographic react 03",
-		link: "https://www.example.com/project3",
+		category: "node",
+		image: "/projects/star-wars.webp",
+		alt: "Landing API",
+		title: "Start Wars CRUD",
+		link: "https://start-wars-quotes-crud.onrender.com/",
 	},
 	{
 		id: 4,
 		category: "javascript",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Purple-themed landing page",
-		title: "Infographic JS 04",
-		link: "https://www.example.com/project3",
+		image: "/projects/recipes-finder.webp",
+		alt: "image of recipes landing page",
+		title: "Landing Recipes",
+		link: "https://alancrisanto.github.io/Recipes-finder/",
 	},
 	{
 		id: 5,
-		category: "python",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Numerical counter over cityscape",
-		title: "Infographic Python 05",
-		link: "https://www.example.com/project3",
+		category: "javascript",
+		image: "/projects/weather-preston.webp",
+		alt: "weather app image",
+		title: "Weather App",
+		link: "https://alancrisanto.github.io/lesson-10/preston-10.html",
 	},
 	{
 		id: 6,
-		category: "react",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Teal mobile app screens",
-		title: "Infographic React 06",
-		link: "https://www.example.com/project3",
+		category: "javascript",
+		image: "/projects/freecodecamp-form.webp",
+		alt: "image of form",
+		title: "Form",
+		link: "https://codepen.io/alancrisanto/full/vYegqep",
 	},
+
 	{
 		id: 7,
-		category: "javascript",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Data visualizations on devices",
-		title: "Infographic JS 07",
-		link: "https://www.example.com/project3",
+		category: "react",
+		image: "/projects/search-bar.webp",
+		alt: "Search Bar image",
+		title: "Search Bar",
+		link: "https://alancrisanto.github.io/react-search-bar/",
 	},
 	{
 		id: 8,
@@ -110,12 +112,12 @@ function ImageGallery() {
 						REACT/NEXT
 					</div>
 					<div
-						onClick={() => setActiveTab("javascript")}
+						onClick={() => setActiveTab("node")}
 						className={`${
-							activeTab === "javascript" ? "bg-green-600 text-white px-4" : "text-gray-200"
+							activeTab === "node" ? "bg-green-600 text-white px-4" : "text-gray-200"
 						} cursor-pointer text-xs md:text-xl`}
 					>
-						JAVASCRIPT
+						NODE
 					</div>
 				</div>
 			</div>
@@ -129,26 +131,19 @@ function ImageGallery() {
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.5 }}
-							className="aspect-square relative overflow-hidden rounded-lg shadow-md group"
+							className="relative overflow-hidden rounded-lg shadow-md group"
 						>
 							<div className="w-full h-full relative overflow-hidden">
 								<img
 									src={project.image}
 									alt={project.alt}
-									className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+									className="w-full h-full transition-transform duration-300 group-hover:scale-110"
 								/>
 								{/* Hover Overlay */}
-								<div className="absolute inset-0 bg-white flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+								<div className="absolute inset-0 bg-slate-800 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 									<div className="text-center">
-										<h2 className="text-xl font-bold mb-2">{project.title}</h2>
-										<a
-											href={project.link}
-											className="text-blue-500 underline"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											View Project
-										</a>
+										<h2 className="text-xl font-bold mb-6">{project.title}</h2>
+										<ButtonSmall text="View Project" link={project.link} />
 									</div>
 								</div>
 							</div>
