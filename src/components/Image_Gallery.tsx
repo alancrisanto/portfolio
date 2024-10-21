@@ -6,7 +6,8 @@ const projects = [
 	{
 		id: 1,
 		category: "python",
-		image: "/projects/recipes-rag.webp",
+		// image: "/projects/recipes-rag.webp",
+		image: "https://res.cloudinary.com/deueg7n72/image/upload/v1729540345/Portofolio/recipes-rag_snpjtn.webp",
 		alt: "",
 		title: "Recipe Generator RAG",
 		link: "https://huggingface.co/spaces/acrisvall/recipes-generator",
@@ -38,10 +39,10 @@ const projects = [
 	{
 		id: 5,
 		category: "javascript",
-		image: "/projects/weather-preston.webp",
+		image: "/projects/weather-rental.webp",
 		alt: "weather app image",
 		title: "Weather App",
-		link: "https://alancrisanto.github.io/lesson-10/preston-10.html",
+		link: "https://alancrisanto.github.io/final/index.html",
 	},
 	{
 		id: 6,
