@@ -6,7 +6,7 @@ const projects = [
 	{
 		id: 1,
 		category: "python",
-		image: "/projects/recipes_rag.webp",
+		image: "/projects/recipes-rag.webp",
 		alt: "",
 		title: "Recipe Generator RAG",
 		link: "https://huggingface.co/spaces/acrisvall/recipes-generator",
@@ -62,19 +62,11 @@ const projects = [
 	},
 	{
 		id: 8,
-		category: "python",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Dashboard interface",
-		title: "Infographic Python 08",
-		link: "https://www.example.com/project3",
-	},
-	{
-		id: 9,
 		category: "react",
-		image: "/certificates/responsive_design_freecodecamp.webp?height=300&width=400",
-		alt: "Person with text overlay",
-		title: "Infographic React 09",
-		link: "https://www.example.com/project3",
+		image: "/projects/next-dashboard.webp",
+		alt: "Dashboard interface",
+		title: "Dashboard",
+		link: "https://next-dashboard-d05y6budn-alancrisanto.vercel.app/dashboard",
 	},
 ];
 
@@ -118,6 +110,14 @@ function ImageGallery() {
 						} cursor-pointer text-xs md:text-xl`}
 					>
 						NODE
+					</div>
+					<div
+						onClick={() => setActiveTab("javascript")}
+						className={`${
+							activeTab === "javascript" ? "bg-green-600 text-white px-4" : "text-gray-200"
+						} cursor-pointer text-xs md:text-xl`}
+					>
+						JAVASCRIPT
 					</div>
 				</div>
 			</div>
