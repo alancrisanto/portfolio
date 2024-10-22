@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFoundPage from "./views/NotFoundPage";
 import Certificates from "./views/Certificates";
 import Projects from "./views/Projects";
+import Contact from "./views/Contact";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 						<Route path="/about" element={<About />} />
 						<Route path="/certificates" element={<Certificates />} />
 						<Route path="/projects" element={<Projects />} />
+						<Route path="/contact" element={<Contact />} />
 						<Route path="*" element={<NotFoundPage />} />
 					</Routes>
 				</BrowserRouter>

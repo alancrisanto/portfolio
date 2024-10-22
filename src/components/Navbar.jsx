@@ -28,7 +28,7 @@ function Navbar() {
 				{open ? <IoIosCloseCircleOutline /> : <IoIosMenu />}
 			</div>
 			<ul
-				className={`md:flex gap-4 justify-between items-center transition-all duration-500 ease-in ${
+				className={`md:flex gap-4 justify-between items-center transition-all duration-1000 ease-in ${
 					open ? "block" : "hidden"
 				}`}
 			>

@@ -1,79 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ButtonSmall from "./ButtonSmall";
 
-const projects = [
-	{
-		id: 1,
-		category: "python",
-		// image: "/projects/recipes-rag.webp",
-		image: "https://res.cloudinary.com/deueg7n72/image/upload/v1729540345/Portofolio/recipes-rag_snpjtn.webp",
-		alt: "",
-		title: "Recipe Generator RAG",
-		link: "https://huggingface.co/spaces/acrisvall/recipes-generator",
-	},
-	{
-		id: 2,
-		category: "node",
-		image: "/projects/node-api.webp",
-		alt: "node js api landing image",
-		title: "NodeJs API",
-		link: "https://project2-mqo5.onrender.com/",
-	},
-	{
-		id: 3,
-		category: "node",
-		image: "/projects/star-wars.webp",
-		alt: "Landing API",
-		title: "Start Wars CRUD",
-		link: "https://start-wars-quotes-crud.onrender.com/",
-	},
-	{
-		id: 4,
-		category: "javascript",
-		image: "/projects/recipes-finder.webp",
-		alt: "image of recipes landing page",
-		title: "Landing Recipes",
-		link: "https://alancrisanto.github.io/Recipes-finder/",
-	},
-	{
-		id: 5,
-		category: "javascript",
-		image: "/projects/weather-rental.webp",
-		alt: "weather app image",
-		title: "Weather App",
-		link: "https://alancrisanto.github.io/final/index.html",
-	},
-	{
-		id: 6,
-		category: "javascript",
-		image: "/projects/freecodecamp-form.webp",
-		alt: "image of form",
-		title: "Form",
-		link: "https://codepen.io/alancrisanto/full/vYegqep",
-	},
-
-	{
-		id: 7,
-		category: "react",
-		image: "/projects/search-bar.webp",
-		alt: "Search Bar image",
-		title: "Search Bar",
-		link: "https://alancrisanto.github.io/react-search-bar/",
-	},
-	{
-		id: 8,
-		category: "react",
-		image: "/projects/next-dashboard.webp",
-		alt: "Dashboard interface",
-		title: "Dashboard",
-		link: "https://next-dashboard-d05y6budn-alancrisanto.vercel.app/dashboard",
-	},
-];
-
-function ImageGallery() {
+function ProjectsGallery({ projects }) {
+	console.log("project", projects);
 	const [activeTab, setActiveTab] = useState("all");
-
 	const filteredProjects = projects.filter((project) => activeTab === "all" || project.category === activeTab);
 
 	return (
@@ -136,15 +67,15 @@ function ImageGallery() {
 						>
 							<div className="w-full h-full relative overflow-hidden">
 								<img
-									src={project.image}
-									alt={project.alt}
+									src={project.image_url}
+									alt={project.title}
 									className="w-full h-full transition-transform duration-300 group-hover:scale-110"
 								/>
 								{/* Hover Overlay */}
 								<div className="absolute inset-0 bg-slate-800 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 									<div className="text-center">
 										<h2 className="text-xl font-bold mb-6">{project.title}</h2>
-										<ButtonSmall text="View Project" link={project.link} />
+										<ButtonSmall text="View Project" link={project.project_url} />
 									</div>
 								</div>
 							</div>
@@ -156,4 +87,4 @@ function ImageGallery() {
 	);
 }
 
-export default ImageGallery;
+export default ProjectsGallery;

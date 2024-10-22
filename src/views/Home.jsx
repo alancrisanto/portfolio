@@ -1,4 +1,3 @@
-import React from "react";
 import Social from "../components/Social";
 import Button from "../components/Button";
 import Stack from "../components/Stack";
@@ -7,7 +6,7 @@ function Home() {
 	return (
 		<main className="container mx-auto pt-20 px-6">
 			<div className="text-slate-100 font-inter">
-				<h1 className="text-5xl md:text-7xl font-bold">Hi I'm Alan Crisanto</h1>
+				<h1 className="text-5xl md:text-7xl font-bold">Hi I&apos;m Alan Crisanto</h1>
 				<p className="text-1xl md:text-2xl text-slate-300 pt-2">A Freelance UI Designer & Web Developer</p>
 				<div className="flex gap-7 items-center mt-3">
 					<Social />
