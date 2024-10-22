@@ -1,16 +1,61 @@
+import { useState } from "react";
+import { supabase } from "../supabase/client";
+
 function Contact() {
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		subject: "",
+		message: "",
+	});
+
+	const [notification, setNotification] = useState({ message: "", type: "" }); // { message: '', type: '' }
+	const [isSubmitted, setIsSubmitted] = useState(false);
+
+	const handleChange = (e) => {
+		e.preventDefault();
+		setFormData((prevData) => ({
+			...prevData,
+			[e.target.id]: e.target.value,
+		}));
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const { name, email, subject, message } = formData;
+
+		// Save message in database
+		const { error } = await supabase.from("client_messages").insert([{ name, email, subject, message }]);
+
+		if (error) {
+			console.error("Error al enviar el mensaje:", error.message);
+			setNotification({ message: "Error al enviar el mensaje. Inténtalo de nuevo.", type: "error" });
+		} else {
+			setIsSubmitted(true);
+			setFormData({ name: "", email: "", subject: "", message: "" });
+			setNotification({ message: "Message sent successfully!", type: "success" });
+		}
+
+		// Clear notification after 5 seconds
+		setTimeout(() => {
+			setNotification({ message: "", type: "" });
+		}, 5000);
+	};
+
 	return (
 		<div className="bg-gray-900 text-white px-8 py-10 flex items-center justify-center">
 			<div className="w-full max-w-6xl flex flex-col md:flex-row gap-12">
 				<div className="flex-1 space-y-8">
 					<h1 className="text-4xl md:text-5xl font-bold leading-tight">Let&apos;s start a project together</h1>
-					<form className="space-y-6">
+					<form className="space-y-6" onSubmit={handleSubmit}>
 						<div>
 							<label htmlFor="name" className="block text-sm font-medium mb-2">
 								What&apos;s your name?
 							</label>
 							<input
 								id="name"
+								value={formData.name}
+								onChange={handleChange}
 								placeholder="John Doe"
 								className="bg-transparent border-b border-gray-700 rounded-none px-0 text-lg placeholder-gray-600 w-full"
 							/>
@@ -22,7 +67,21 @@ function Contact() {
 							<input
 								id="email"
 								type="email"
+								value={formData.email}
+								onChange={handleChange}
 								placeholder="john@doe.com"
+								className="bg-transparent border-b border-gray-700 rounded-none px-0 text-lg placeholder-gray-600 w-full"
+							/>
+						</div>
+						<div>
+							<label htmlFor="subject" className="block text-sm font-medium mb-2">
+								Subject
+							</label>
+							<input
+								id="subject"
+								value={formData.subject}
+								onChange={handleChange}
+								placeholder="Project Subject"
 								className="bg-transparent border-b border-gray-700 rounded-none px-0 text-lg placeholder-gray-600 w-full"
 							/>
 						</div>
@@ -32,12 +91,17 @@ function Contact() {
 							</label>
 							<textarea
 								id="message"
+								value={formData.message}
+								onChange={handleChange}
 								placeholder="I'm looking to..."
 								className="bg-transparent border-b border-gray-700 rounded-none px-0 text-lg placeholder-gray-600 resize-none w-full"
 								rows={4}
 							></textarea>
 						</div>
-						<button className="mt-6 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg inline-flex items-center">
+						<button
+							type="submit"
+							className="mt-6 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg inline-flex items-center"
+						>
 							Send Message
 							<svg
 								className="ml-2 h-4 w-4"
@@ -51,14 +115,17 @@ function Contact() {
 							</svg>
 						</button>
 					</form>
+					{notification.message && (
+						<p className={`mt-4 ${notification.type === "success" ? "text-green-500" : "text-red-500"}`}>
+							{notification.message}
+						</p>
+					)}
 				</div>
 				<div className="flex-1 space-y-8">
 					<div>
-						<div>
-							<h5 className="text-gray-400">Contact Details</h5>
-							<h2 className="text-xl font-semibold">Alan Crisanto</h2>
-							<p>Web Developer</p>
-						</div>
+						<h5 className="text-gray-400">Contact Details</h5>
+						<h2 className="text-xl font-semibold">Alan Crisanto</h2>
+						<p>Web Developer</p>
 					</div>
 					<div className="text-sm">
 						<p>alanvcrisanto@gmail.com</p>
