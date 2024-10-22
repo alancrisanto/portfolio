@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../supabase/client";
+import ReCAPTCHA from "react-google-recaptcha"; // Importa el componente de reCAPTCHA
 
 function Contact() {
 	const [formData, setFormData] = useState({
@@ -9,8 +10,9 @@ function Contact() {
 		message: "",
 	});
 
-	const [notification, setNotification] = useState({ message: "", type: "" }); // { message: '', type: '' }
+	const [notification, setNotification] = useState({ message: "", type: "" });
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [captchaValue, setCaptchaValue] = useState(null); // Estado para el valor del CAPTCHA
 
 	const handleChange = (e) => {
 		e.preventDefault();
@@ -20,23 +22,34 @@ function Contact() {
 		}));
 	};
 
+	const handleCaptchaChange = (value) => {
+		setCaptchaValue(value); // Guarda el valor del CAPTCHA
+	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		if (!captchaValue) {
+			setNotification({ message: "Por favor completa el CAPTCHA.", type: "error" });
+			return;
+		}
+
 		const { name, email, subject, message } = formData;
 
-		// Save message in database
+		// Guarda el mensaje en la base de datos
 		const { error } = await supabase.from("client_messages").insert([{ name, email, subject, message }]);
 
 		if (error) {
 			console.error("Error al enviar el mensaje:", error.message);
-			setNotification({ message: "Error al enviar el mensaje. Inténtalo de nuevo.", type: "error" });
+			setNotification({ message: "Error sending message, try again.", type: "error" });
 		} else {
 			setIsSubmitted(true);
 			setFormData({ name: "", email: "", subject: "", message: "" });
 			setNotification({ message: "Message sent successfully!", type: "success" });
 		}
 
-		// Clear notification after 5 seconds
+		// Restablece el valor del CAPTCHA después de enviar
+		setCaptchaValue(null);
 		setTimeout(() => {
 			setNotification({ message: "", type: "" });
 		}, 5000);
@@ -98,6 +111,7 @@ function Contact() {
 								rows={4}
 							></textarea>
 						</div>
+						<ReCAPTCHA sitekey={import.meta.env.VITE_RECAPTCHA_KEY} onChange={handleCaptchaChange} />
 						<button
 							type="submit"
 							className="mt-6 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg inline-flex items-center"
