@@ -18,7 +18,7 @@ function Navbar() {
 		<nav className="md:flex md:justify-between md:items-center  p-4">
 			<div className="max-w-32">
 				<Link to="/">
-					<img src="/logo.png" alt="logo alan crisanto" />
+					<img src="logo.png" alt="logo alan crisanto" />
 				</Link>
 			</div>
 			<div

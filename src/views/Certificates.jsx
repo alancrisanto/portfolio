@@ -28,7 +28,7 @@ function Certificates() {
 				<div>
 					<img
 						className="h-auto max-w-full rounded-lg"
-						src="../public/certificates/byui_web_development.webp"
+						src="certificates/byui_web_development.webp"
 						alt="byu certificate"
 					/>
 				</div>
