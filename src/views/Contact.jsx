@@ -30,7 +30,7 @@ function Contact() {
 		e.preventDefault();
 
 		if (!captchaValue) {
-			setNotification({ message: "Por favor completa el CAPTCHA.", type: "error" });
+			setNotification({ message: "Please complete the CAPTCHA.", type: "error" });
 			return;
 		}
 
