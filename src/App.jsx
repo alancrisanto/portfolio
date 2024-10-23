@@ -10,7 +10,8 @@ import Contact from "./views/Contact";
 
 function App() {
 	return (
-		<div className="body-containe w-full h-screen">
+		// body-container w-full h-screen
+		<div className="overflow-x-hidden">
 			<div className="container mx-auto">
 				<BrowserRouter>
 					<Navbar />
