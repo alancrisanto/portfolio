@@ -147,7 +147,7 @@ function About() {
 				</div>
 
 				{/* Porject on mind */}
-				<div className="bg-[url('assets/wave.svg')] bg-no-repeat bg-top bg-[length:100%_100%] -mx-6 md:-mx-[calc(100vw-100%)] py-16 md-l:px-16 text-center ">
+				<div className="bg-[url('/assets/wave.svg')] bg-no-repeat bg-top bg-[length:100%_100%] -mx-6 md:-mx-[calc(100vw-100%)] py-16 md-l:px-16 text-center ">
 					<p className="px-6 md:px-16 text-5xl md:text-7xl font-bold mb-16">Have any project on mind?</p>
 					<div className="text-xl md:text-3xl">
 						<Button className="text-3xl" text="Hired Me" link="/certificates" />
