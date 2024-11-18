@@ -37,7 +37,7 @@ function About() {
 							inspiration. I&apos;m majoring Software development at Brigham Young University Idaho. I have serious
 							passion for UI effects
 						</p>
-						<p className="text-green-500 font-semibold text-2xl pb-4">Let&apos;s make something special.</p>
+						<h3 className="text-green-500 font-semibold text-2xl pb-4">Let&apos;s make something special.</h3>
 						<Social />
 					</div>
 				</div>
@@ -72,7 +72,7 @@ function About() {
 							<img src="assets/dots_1.svg" alt="consecutives green dots" />
 						</div>
 						<div className="grid grid-cols-[0.75fr_1fr] md:grid-cols-[0.5fr_1fr] lg:grid-cols-[0.35fr_1fr] items-center">
-							<p className="text-lg font-semibold">English:</p>
+							<p className="text-lg font-semibold text-slate-300">English:</p>
 							<img src="assets/dots_2.svg" alt="consecutive green and grey dots" />
 						</div>
 						<div className="grid grid-cols-[0.75fr_1fr] md:grid-cols-[0.5fr_1fr] lg:grid-cols-[0.35fr_1fr] items-center">
